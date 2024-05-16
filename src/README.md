@@ -11,7 +11,7 @@ projects:
   - icon: project
     name: 前端编码规范
     desc: ⼀套完整化的前端编码规范⼯具
-    link: https://你的项目链接
+    link: /computer/操作系统概论/
 
   - icon: link
     name: 前端Hooks库

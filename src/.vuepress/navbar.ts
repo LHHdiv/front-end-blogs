@@ -30,6 +30,24 @@ export default navbar([
         prefix: "/React/",
         link: "React/",
       },
+      {
+        text: "nodeJS",
+        icon: "JavaScriptdaima",
+        prefix: "/NodeJS/",
+        link: "NodeJS/",
+      },
+      {
+        text: "typescript",
+        icon: "JavaScriptdaima",
+        prefix: "/Typescript/",
+        link: "Typescript/",
+      },
+      {
+        text: "前端面试",
+        icon: "JavaScriptdaima",
+        prefix: "/前端面试/",
+        link: "前端面试/",
+      },
     ],
   },
   {
