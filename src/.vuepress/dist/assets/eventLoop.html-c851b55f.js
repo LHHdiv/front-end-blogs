@@ -1,1 +1,0 @@
-import{_ as o,o as t,c as a,a as e,d as n}from"./app-b6541c4a.js";const c={},r=e("h2",{id:"eventloop-加载时间线",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#eventloop-加载时间线","aria-hidden":"true"},"#"),n(" EventLoop(加载时间线)")],-1),s=[r];function _(d,l){return t(),a("div",null,s)}const h=o(c,[["render",_],["__file","eventLoop.html.vue"]]);export{h as default};

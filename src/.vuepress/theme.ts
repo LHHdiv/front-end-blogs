@@ -21,7 +21,6 @@ export default hopeTheme(
     iconAssets: "//at.alicdn.com/t/c/font_4174654_z2bwmnm3b.css",
     logo: "/rocket.gif",
     repo: "https://gitee.com/LHHdiv/blog-site",
-
     docsDir: "src",
 
     // navbar

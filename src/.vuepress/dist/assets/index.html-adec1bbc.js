@@ -1,1 +1,0 @@
-import{_ as t,o as a,c as s,a as e,d as c}from"./app-b6541c4a.js";const n={},o=e("h2",{id:"es5-根文件",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#es5-根文件","aria-hidden":"true"},"#"),c(" ES5 根文件")],-1),r=[o];function d(_,i){return a(),s("div",null,r)}const l=t(n,[["render",d],["__file","index.html.vue"]]);export{l as default};

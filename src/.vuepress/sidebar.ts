@@ -1,13 +1,52 @@
 import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar({
-  "/css-md/": "structure",
-  "/reacts/": "structure",
-  "/nodes/": "structure",
-  "/javascript/": "structure",
-  "/typescript/": "structure",
-  "/vues/": "structure",
-  "/package-build/": [
+  "/git/": "structure",
+  "/front-end/": [
+    {
+      text: "HTML-CSS",
+      icon: "JavaScriptdaima",
+      collapsible: true,
+      prefix: "HTML-CSS/",
+      children: "structure",
+    },
+    {
+      text: "Javascript",
+      icon: "JavaScriptdaima",
+      collapsible: true,
+      prefix: "Javascript/",
+      children: "structure",
+    },
+    {
+      text: "Vue",
+      icon: "JavaScriptdaima",
+      collapsible: true,
+      prefix: "Vue/",
+      children: "structure",
+    },
+    {
+      text: "React",
+      icon: "JavaScriptdaima",
+      collapsible: true,
+      prefix: "React/",
+      children: "structure",
+    },
+    {
+      text: "NodeJS",
+      icon: "JavaScriptdaima",
+      collapsible: true,
+      prefix: "NodeJS/",
+      children: "structure",
+    },
+    {
+      text: "Typescript",
+      icon: "JavaScriptdaima",
+      collapsible: true,
+      prefix: "Typescript/",
+      children: "structure",
+    },
+  ],
+  "/front-end-infrastructure/": [
     {
       text: "Rollup打包工具",
       icon: "JavaScriptdaima",
@@ -20,57 +59,30 @@ export default sidebar({
       icon: "webpack",
       collapsible: true,
       prefix: "webpack/",
-      // link: "/es6/",
       children: "structure",
     },
   ],
-  "/expand/": [
-    "SOLID.md",
+  "/advanced-program/": [
     {
       text: "设计模式",
       icon: "laptop-code",
       collapsible: true,
-      prefix: "designPatterns/",
-      // link: "/expand/designPatterns/SOLID.md", //点击选项卡时，默认选中第一项
-      children: [
-        {
-          text: "创建型设计模式",
-          icon: "laptop-code",
-          collapsible: true,
-          prefix: "designPatterns/creationalDesignPatterns/",
-          children: "structure",
-        },
-        {
-          text: "结构型设计模式",
-          icon: "laptop-code",
-          collapsible: true,
-          prefix: "designPatterns/structuralDesignPatterns/",
-          children: "structure",
-        },
-        {
-          text: "行为型设计模式",
-          icon: "laptop-code",
-          collapsible: true,
-          prefix: "designPatterns/behavioralDesignPatterns/",
-          children: "structure",
-        },
-      ],
+      prefix: "设计模式/",
+      children: "structure",
     },
     {
       text: "算法",
       icon: "laptop-code",
       collapsible: true,
       prefix: "算法/",
-      link: "/expand/算法/sort.md", //点击选项卡时，默认选中第一项
+      // link: "/expand/算法/sort.md", //点击选项卡时，默认选中第一项
       children: "structure",
     },
-  ],
-  "/universityNote/": [
     {
-      text: "数据库系统原理",
-      icon: "JavaScriptdaima",
+      text: "数据结构",
+      icon: "laptop-code",
       collapsible: true,
-      prefix: "database/",
+      prefix: "数据结构/",
       children: "structure",
     },
   ],
