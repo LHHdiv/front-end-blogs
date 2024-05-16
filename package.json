@@ -1,25 +1,21 @@
 {
-  "name": "astro-blog",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "blog-site",
+  "version": "2.0.0",
+  "description": "个人博客",
+  "license": "MIT",
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "docs:build": "vuepress build src",
+    "docs:clean-dev": "vuepress dev src --clean-cache",
+    "docs:dev": "vuepress dev src",
+    "docs:update-package": "npx vp-update"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@astrojs/react": "^3.3.4",
-    "@astrojs/tailwind": "^5.1.0",
-    "@types/react": "^18.3.2",
-    "@types/react-dom": "^18.3.0",
-    "astro": "^4.8.4",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwindcss": "^3.4.3"
+  "devDependencies": {
+    "@vuepress/client": "2.0.0-beta.66",
+    "@vuepress/plugin-prismjs": "^2.0.0-beta.66",
+    "vue": "^3.2.47",
+    "vuepress": "2.0.0-beta.66",
+    "vuepress-plugin-auto-catalog": "^2.0.0-beta.233",
+    "vuepress-theme-hope": "2.0.0-beta.233"
   }
 }

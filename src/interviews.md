@@ -1,0 +1,60 @@
+---
+title: 面试题
+order: 1
+index: true
+icon: laptop-code
+category:
+  - Javascript
+---
+
+<!----------------- HTML&CSS区域 ----------------->
+
+<!---------------- Javascript区域 ----------------->
+
+## JS 的数据类型以及判断方法
+
+::: details JS 的数据类型以及判断方法
+
+#### 数据类型
+
+- Number（数字）
+- String（字符串）
+- Boolean（布尔值：true & false）
+- undefined（undefined）
+- null（null）
+
+```js
+
+```
+
+:::
+
+## JS 中常用的比较两个值相等的方式
+
+::: details JS 中常用的比较两个值相等的方式
+
+```js
+
+```
+
+:::
+
+## JS 闭包
+
+## JS 深浅拷贝
+
+## JS 继承
+
+## JSON.parse(JSON.stringify())实现深浅拷贝有什么问题
+
+## JS 实现 eventBus
+
+## JS 事件循环(eventLoop)
+
+## JS promise&async
+
+<!---------------- Vue区域 ----------------->
+
+<!---------------- React区域 ----------------->
+
+<!---------------- 性能优化区域 ----------------->

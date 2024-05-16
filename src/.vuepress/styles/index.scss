@@ -1,0 +1,60 @@
+// 自定义样式
+// .nav-item {
+//   font-style: italic;
+// }
+.iconfont {
+  color: #40B8FA
+}
+
+
+// 给文章的title增加个图标
+.vp-article-title:before {
+  content: "";
+  background-image: url('/assets/images/write.gif');
+  display: inline-block;
+  background-size: 100%;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  margin-right: 6px;
+  margin-bottom: -3px;
+}
+
+.vp-article-title,
+h2 {
+  font-weight: 700;
+}
+
+h2:before {
+  content: "";
+  background-image: url('/assets/images/h2.png');
+  display: inline-block;
+  // width: 16px;
+  // height: 16px;
+  background-size: 100%;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 15px;
+  line-height: 15px;
+  margin-right: 6px;
+  margin-bottom: -2px;
+}
+
+h4:before {
+  content: "";
+  background-image: url('/assets/images/h4.png');
+  display: inline-block;
+  // width: 16px;
+  // height: 16px;
+  background-size: 100%;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 15px;
+  line-height: 15px;
+  margin-right: 6px;
+  margin-bottom: -2px;
+}

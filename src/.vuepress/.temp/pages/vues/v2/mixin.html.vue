@@ -1,0 +1,86 @@
+<template><div><div class="hint-container tip">
+<p class="hint-container-title">mixin(混入) 是什么</p>
+<p>混入 (mixin) 提供了一种非常灵活的方式，来分发 Vue 组件中的可复用功能。一个混入对象可以包含任意组件选项。当组件使用混入对象时，所有混入对象的选项将被“混合”进入该组件本身的选项。(可以理解为，把vue组件中的script内容提出来了一份js文件，拥有vue的生命周期、数据状态)</p>
+</div>
+<h2 id="基础示例" tabindex="-1"><a class="header-anchor" href="#基础示例" aria-hidden="true">#</a> 基础示例</h2>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// 定义一个myMixin混入对象</span>
+<span class="token keyword">let</span> myMixin <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">created</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function-variable function">hello</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"hello,I am myMixin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 定义一个使用混入对象的组件</span>
+<span class="token keyword">let</span> Component <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">mixin</span><span class="token operator">:</span> <span class="token punctuation">[</span>myMixin<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> component <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Component</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// 会在加载结束后，created声明周期输出内容hello,I am myMixin</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>组件内使用mixin时，是一个方法和方法、状态与状态的合并操作</li>
+<li>如果有同名钩子函数，或者同名数据，合并时，以组件内的方法和数据为主，覆盖mixin定义的同名方法和数据</li>
+<li>组件内引入mixin的方式是：mixins:[mixin1,mixin2,...]</li>
+<li>组件内引入了mixin之后，可以在当前组件直接使用mixin中的数据、方法等</li>
+</ul>
+<h2 id="全局混入mixin" tabindex="-1"><a class="header-anchor" href="#全局混入mixin" aria-hidden="true">#</a> 全局混入mixin</h2>
+<div class="hint-container warning">
+<p class="hint-container-title">注意</p>
+<p>注意：混入也可以进行全局注册，但是一旦全局混入后，将会影响每一个之后创建的vue实例，一般不使用全局方式，而是选择和组件搭配</p>
+</div>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// 为自定义的选项 'myOption' 注入一个处理器。</span>
+Vue<span class="token punctuation">.</span><span class="token function">mixin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function-variable function">created</span><span class="token operator">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">let</span> myOption <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$options<span class="token punctuation">.</span>myOption
+    <span class="token keyword">if</span><span class="token punctuation">(</span>myOption<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>myOption<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">myOption</span><span class="token operator">:</span><span class="token string">"全局注入mixin"</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="mixin缺点" tabindex="-1"><a class="header-anchor" href="#mixin缺点" aria-hidden="true">#</a> mixin缺点</h2>
+<ol>
+<li>命名冲突（多个组件，多个mixin之间命名相同时，会出现名米相同、覆盖的情况）</li>
+<li>依赖不透明（排查问题时，会增加难度，不能直观的定位问题）</li>
+</ol>
+<h2 id="transition过渡" tabindex="-1"><a class="header-anchor" href="#transition过渡" aria-hidden="true">#</a> Transition过渡</h2>
+<h4 id="vue-提供了-transition-的封装组件-在下列情形中-可以给任何元素和组件添加进入-离开过渡" tabindex="-1"><a class="header-anchor" href="#vue-提供了-transition-的封装组件-在下列情形中-可以给任何元素和组件添加进入-离开过渡" aria-hidden="true">#</a> Vue 提供了 transition 的封装组件，在下列情形中，可以给任何元素和组件添加进入/离开过渡</h4>
+<ol>
+<li>条件渲染（v-if）</li>
+<li>条件展示（v-show）</li>
+<li>动态组件</li>
+<li>组件根节点</li>
+</ol>
+<div class="hint-container tip">
+<p class="hint-container-title">基础示例</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// 一个vue组件</span>
+<span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"demo"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>button v<span class="token operator">-</span>on<span class="token operator">:</span>click<span class="token operator">=</span><span class="token string">"show = !show"</span><span class="token operator">></span>
+    Toggle
+  <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+  <span class="token operator">&lt;</span>transition name<span class="token operator">=</span><span class="token string">"fade"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>p v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">"show"</span><span class="token operator">></span>hello<span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>transition<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>style<span class="token operator">></span>
+<span class="token punctuation">.</span>fade<span class="token operator">-</span>enter<span class="token operator">-</span>active<span class="token punctuation">,</span> <span class="token punctuation">.</span>fade<span class="token operator">-</span>leave<span class="token operator">-</span>active <span class="token punctuation">{</span>
+  <span class="token literal-property property">transition</span><span class="token operator">:</span> opacity <span class="token punctuation">.</span>5s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span>fade<span class="token operator">-</span>enter<span class="token punctuation">,</span> <span class="token punctuation">.</span>fade<span class="token operator">-</span>leave<span class="token operator">-</span>to<span class="token punctuation">{</span>
+  <span class="token literal-property property">opacity</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol>
+<li>使用Vue提供的transition包裹元素，使用v-if或v-show控制元素的动作</li>
+<li>transition的name属性对应的是style的类名，支持自定义，如：name=&quot;rich&quot;，则style中的类名为rich-enter-active，把fade替换为rich即可</li>
+</ol>
+</div>
+</div></template>
+
+

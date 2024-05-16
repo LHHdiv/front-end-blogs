@@ -1,0 +1,1 @@
+import{_ as o,o as n,c as t,a as e,d as a}from"./app-b6541c4a.js";const d={},c=e("h1",{id:"node01",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#node01","aria-hidden":"true"},"#"),a(" node01")],-1),s=e("p",null,"开启 node 之旅",-1),r=[c,s];function _(i,l){return n(),t("div",null,r)}const f=o(d,[["render",_],["__file","node01.html.vue"]]);export{f as default};
