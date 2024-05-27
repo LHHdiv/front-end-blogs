@@ -20,7 +20,7 @@ export default hopeTheme(
     // 添加iconfont图标库的icon
     iconAssets: "//at.alicdn.com/t/c/font_4174654_z2bwmnm3b.css",
     logo: "/rocket.gif",
-    repo: "https://gitee.com/LHHdiv/blog-site",
+    repo: "https://github.com/LHHdiv/front-end-blogs",
     docsDir: "src",
 
     // navbar
